@@ -1993,8 +1993,8 @@
             samples = this.streammsec / 1000 * samplerate;
             bits = Math.ceil(Math.log(samples) * Math.LOG2E);
             bits = (bits < 8) ? 8 : (bits > 14) ? 14 : bits;
-            // return 1 << bits;
-            return 1024;
+            return 1 << bits;
+            // return 1024;
         };
 
         $.play = function() {

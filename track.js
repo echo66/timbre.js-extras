@@ -43,10 +43,11 @@ function Track(bpmTimeline) {
 		_player.removeAll();
 		_masterGain.removeAll();
 		if (_devicesPipeline.length > 0) {
+			_devicesPipeline[0].removeAll();
 			_player.appendTo(_devicesPipeline[0]);
-			for (var i=0; i < _devicesPipeline.length-1; i++) {
+			for (var i=1; i < _devicesPipeline.length; i++) {
 				_devicesPipeline[i].removeAll();
-				_devicesPipeline[i].appendTo(_devicesPipeline[i+1])
+				_devicesPipeline[i-1].appendTo(_devicesPipeline[i])
 			}
 			_masterGain.append(_devicesPipeline[_devicesPipeline.length-1]);
 		} else {
